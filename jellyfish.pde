@@ -76,15 +76,6 @@ class Jellyfish {
       speed = 0;
     }
     
-    float pathCurve = 0.5;
-    
-    
-    if (random(1) > 0.5) {
-      angle -= random(pathCurve);
-    } else {
-      angle += random(pathCurve);
-    }
-    
     //Move jelly in the direction that it is facing
     x += cos(angle * (PI / 180)) * speed;
     y += sin(angle * (PI / 180)) * speed;
