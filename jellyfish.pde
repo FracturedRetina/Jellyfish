@@ -3,18 +3,10 @@ int cvsH = 500;
 Jellyfish jf;
 
 void setup() {
-  boolean fullscreen = false;
+  size(cvsW, cvsH);
   
-  if (fullscreen) {
-    size(displayWidth, displayHeight);
-    cvsW = displayWidth;
-    cvsH = displayHeight;
-  } else {
-    size(cvsW, cvsH);
-  }
-
   jf = new Jellyfish();  
-
+  
   stroke(255);
   noLoop();
   
@@ -22,7 +14,9 @@ void setup() {
 }
 
 void draw() { 
+  //Set background color to black
   background(0);
+  //Set stroke color to white
   stroke(255);
   
   jf.update();
@@ -30,18 +24,25 @@ void draw() {
 }
 
 class Jellyfish {
+  //X coordinate of the top middle of the jelly's bell
   float x;
+  //Y coordinate of the top middle of the jelly's bell
   float y;
+  //Direction that the jelly is going (in degrees)
   float angle;
   float bellWidth;
   float bellHeight;
-  float theta; //Bell width modifier
-  boolean thetaMode; //Whether bell is expanding or contracting
+  //Bell width modifier
+  float theta;
+  //Whether bell is expanding or contracting
+  boolean thetaMode;
   float speed;
   
   Jellyfish() {
+    //Position jelly in the middle of the canvas
     x = cvsW / 2;
     y = cvsH / 2;
+    //Point the jelly in a random angle
     angle = random(360);
     bellWidth = 100;
     bellHeight = 32;
@@ -92,9 +93,11 @@ class Jellyfish {
       angle += random(pathCurve);
     }
     
+    //Move jelly in the direction that it is facing
     x += cos(angle * (PI / 180)) * speed;
     y += sin(angle * (PI / 180)) * speed;
     
+    //If jelly exits the canvas, then wrap it around to the other side
     if (x < 0) {
       x = cvsW;
     }
@@ -113,6 +116,7 @@ class Jellyfish {
     translate(x, y);
     rotate(radians(angle + 270));
     noFill();
+    //Draw bell lines
     arc(0, 0, (bellWidth - 0 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI, CHORD);
     arc(0, 0, (bellWidth - 1 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
     arc(0, 0, (bellWidth - 2 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
