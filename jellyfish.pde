@@ -49,14 +49,6 @@ class Jellyfish {
     theta = 0;
     speed = 1;
     thetaMode = true;
-    
-    for (int i = 0; i < 48; i++) {
-      update();
-    }
-    
-    x = cvsW / 2;
-    y = cvsH / 2;
-    angle = random(360);
   }
   
   void update() {
