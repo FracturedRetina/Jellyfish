@@ -61,7 +61,7 @@ class Jellyfish {
   void update() {
     if (theta >= 17) {
       thetaMode = false;
-      //Low speed
+      //Minimum speed
       speed = 0.15741837;
     } else if (theta <= -17) {
       thetaMode = true;
@@ -73,16 +73,11 @@ class Jellyfish {
       theta -= 0.7;
     }
     
-    /*--------------------------------*/
-//    print(speed + "\n");
-    
     //Caculate speed
     if (thetaMode == true) {
       speed -= 0.0306125;
-//      speed -= sin(((theta + 17) / 34) * 90);
     } else {
       speed += 0.0725;
-//      speed += sin(((theta + 17) / 34) * 90);
     }
     if (speed < 0) {
       speed = 0;
