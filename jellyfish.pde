@@ -20,7 +20,7 @@ void draw() {
   stroke(255);
   
   jf.update();
-  jf.draw();
+  jf.drawAll();
 }
 
 class Jellyfish {
@@ -106,5 +106,18 @@ class Jellyfish {
     arc(0, 0, (bellWidth - 3 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
     arc(0, 0, (bellWidth - 4 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
     line(0, 0, 0, bellHeight);
+    rotate(-radians(angle + 270));
+    translate(-x, -y);
+  }
+  
+  void drawAll() {
+    this.draw();
+    translate(0, -cvsH); //Top
+    this.draw();
+    translate(0, cvsH * 2); //Bottom
+    this.draw();
+    translate(-cvsW, -cvsH); //Left
+    this.draw();
+    translate(2 * cvsW, 0); //Right
   }
 }
