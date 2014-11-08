@@ -100,7 +100,8 @@ class Jellyfish {
     rotate(radians(angle + 270));
     noFill();
     //Draw bell lines
-    arc(0, 0, (bellWidth - 0 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI, CHORD);
+    line(-(bellWidth / 2 + theta / 2), 0, bellWidth / 2 + theta / 2, 0);
+    arc(0, 0, (bellWidth - 0 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
     arc(0, 0, (bellWidth - 1 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
     arc(0, 0, (bellWidth - 2 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
     arc(0, 0, (bellWidth - 3 * ((bellWidth + theta) / 5)) + theta, bellHeight * 2, 0, PI);
